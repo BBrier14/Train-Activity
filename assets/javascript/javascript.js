@@ -44,3 +44,5 @@ console.log(trainCheck.frequency);
 console.log(trainCheck.minutes);
 
 });
+//------------End of On-CLick Event------------------//
+
