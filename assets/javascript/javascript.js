@@ -17,7 +17,7 @@ var database = firebase.database();
 
 //------------------ON CLICK EVENT------------------//
 //This On-click event will take the user input and push it into the firebase storage
-$("#add-train-button").on("click", function (event){
+$("#add-train-btn").on("click", function (event){
     event.preventDefault();
 
 //On click part 2: this reads what the user inputs and turns it into a variable
@@ -26,6 +26,21 @@ var destination = $("#destination-input").val().trim();
 var frequency = $("#frequency-input").val().trim();
 var minutes = $("#minutes-input").val().trim(); 
 
-//
+//This creates a local storage variable to refer to later from the firebase
+var trainCheck = {
+    name: trainName,
+    destination: destination,
+    frequency: frequency,
+    minutesAway: minutes,
 
-})
+}
+
+//this will push the trainCheck variable to firebase
+database.ref().push(trainCheck);
+
+console.log(trainCheck.name);
+console.log(trainCheck.destination);
+console.log(trainCheck.frequency);
+console.log(trainCheck.minutes);
+
+});
