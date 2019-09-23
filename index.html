@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,82 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Train Scheduler</title>
 </head>
+
 <body>
-    
+
+    <div class="container">
+        <div class="jumbotron" style="background-color: black; color: white">
+            <h1 class="text-center">Grand Central Station</h1>
+            <h3 class="text-center">Arrivals and Departures</h3>
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <!-- Current Employees-->
+                <div class="card mb-4">
+                    <div class="card-header">Curren Train Schedule</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='employee-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Add Employee  -->
+                <div class="card mb-4">
+                    <div class="card-header">Add Employee</div>
+                    <div class="card-body">
+
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="trainName-input">Train Name</label>
+                                <input class="form-control" id="trainName-input" placeholder="Metropolitan" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination-input">Destination</label>
+                                <input class="form-control" id="destination-input" placeholder="Philadelphia"
+                                    type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency-input">Frequency (HH:mm military time)</label>
+                                <input class="form-control" id="frequency-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="minutes-input">Frequency (min)</label>
+                                <input class="form-control" id="minutes-input" placeholder="60" type="text">
+                            </div>
+                            <button class="btn btn-primary float-right" id="add-employee-btn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
 
-
-
+    </div>
 
 
 
@@ -27,4 +96,5 @@
     </script>
     <script src="assets/javascript/javascript.js"></script>
 </body>
+
 </html>
