@@ -81,3 +81,11 @@ var newRow = $("<tr>").append(
 $("#train-table > tbody").append(newRow);
 
 })
+
+
+//This will display the current time, as well as be the current time variable used to do the math
+var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+var currentFormatted = "CURRENT TIME: " + moment(currentTime).format("hh:mm");
+    $("#current-time").text(currentFormatted)
