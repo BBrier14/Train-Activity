@@ -70,6 +70,38 @@ console.log(tDestination);
 console.log(tFrequency);
 console.log(tFirstTrain);
 
+//------------This is the list of variables and calculations to find frequency----------------//
+
+//this variable converts the first time found in firebase
+var firstTimeConverted = moment(tFirstTrain, "HH:mm").subtract(1, "years");
+console.log(firstTimeConverted);
+
+//this variable is the current time
+var currentTime = moment();
+console.log(currentTime);
+
+//this variable is the difference in times, in minutes
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+console.log(diffTime);
+
+//this variable finds the remainder of the diffTime variable and the specific train frequency
+var tRemainder = diffTime % tFrequency;
+console.log(tRemainder);
+
+//this variable shows the minutes to next train by subtracting the remainder from the frequency
+var tMinutesTillTrain = tFrequency - tRemainder;
+console.log(tMinutesTillTrain);
+
+//this variable finds when the next train is based on current time and the minutes until train variable
+var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+console.log(nextTrain);
+
+//-----------This completes the calculation section--------------//
+
+
+
+
+
 //This creates a new row for each train added
 var newRow = $("<tr>").append(
     $("<td>").text(tName),
@@ -84,8 +116,8 @@ $("#train-table > tbody").append(newRow);
 
 
 //This will display the current time, as well as be the current time variable used to do the math
-var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+// var currentTime = moment();
+//     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
-var currentFormatted = "CURRENT TIME: " + moment(currentTime).format("hh:mm");
-    $("#current-time").text(currentFormatted)
+// var currentFormatted = "CURRENT TIME: " + moment(currentTime).format("hh:mm");
+//     $("#current-time").text(currentFormatted)
