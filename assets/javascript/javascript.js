@@ -23,15 +23,15 @@ $("#add-train-btn").on("click", function(event) {
     //On click part 2: this reads what the user inputs and turns it into a variable
     var trainName = $("#trainName-input").val().trim();
     var destination = $("#destination-input").val().trim();
-    var frequency = $("#frequency-input").val().trim();
     var minutes = $("#minutes-input").val().trim();
+    var frequency = $("#frequency-input").val().trim();
 
     //This creates a local storage variable to refer to later from the firebase
     var trainCheck = {
         name: trainName,
         destination: destination,
-        frequency: frequency,
-        minutesaway: minutes
+        minutesaway: minutes,
+        frequency: frequency
 
     }
 
@@ -40,8 +40,8 @@ $("#add-train-btn").on("click", function(event) {
 
     console.log(trainCheck.name);
     console.log(trainCheck.destination);
-    console.log(trainCheck.frequency);
     console.log(trainCheck.minutes);
+    console.log(trainCheck.frequency);
 
 });
 //------------End of On-CLick Event------------------//
@@ -54,8 +54,8 @@ database.ref().on("child_added", function(childSnapshot) {
 //This stores the data from firebase into variables for later use
 var tName = childSnapshot.val().name;
 var tDestination = childSnapshot.val().destination;
+var tMinutes = childSnapshot.val().minutesaway;
 var tFrequency = childSnapshot.val().frequency;
-var tMinutes = childSnapshot.val().minutesAway;
 
 //This will console log the variables above
 console.log(tName);
@@ -67,8 +67,8 @@ console.log(tMinutes);
 var newRow = $("<tr>").append(
     $("<td>").text(tName),
     $("<td>").text(tDestination),
-    $("<td>").text(tFrequency),
-    $("<td>").text(tMinutes)
+    $("<td>").text(tMinutes),
+    $("<td>").text(tFrequency)
 )
 
 $("#train-table > tbody").append(newRow);
